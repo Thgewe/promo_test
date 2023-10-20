@@ -1,0 +1,20 @@
+:root {
+    --window-width: 1280px;
+    --window-height: 720px;
+
+    --background-color-primary: #86D3F4;
+
+    --font-family-main: 'Roboto', sans-serif;
+
+    --text-color-primary: #000000;
+    --text-color-secondary: #ffffff;
+
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-bg: 26px;
+    --font-size-hg: 32px;
+
+    --color-active: #000000;
+    --color-inactive: #4E4E4E;
+    --color-errow: #EA0000;
+}
