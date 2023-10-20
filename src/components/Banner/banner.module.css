@@ -1,0 +1,23 @@
+.banner {
+    width: 250px;
+    height: 356px;
+    background:
+            var(--background-color-primary)
+            url("../../media/BannerBG.png")
+            no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 220px;
+    right: 0;
+    transition: transform var(--animation-duration) ease-in;
+}
+.banner.hidden {
+    transform: translateX(100%);
+}
+.btn {
+    width: 156px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}

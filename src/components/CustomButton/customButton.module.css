@@ -1,0 +1,14 @@
+.button {
+    font-family: var(--font-family-main);
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    font-size: var(--font-size-md);
+    padding: 16px;
+}
+.button:hover {
+    background-color: rgb(25, 25, 25);
+}
+.button:active {
+    background-color: rgb(50, 50, 50);
+}

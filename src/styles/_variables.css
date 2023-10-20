@@ -17,4 +17,6 @@
     --color-active: #000000;
     --color-inactive: #4E4E4E;
     --color-errow: #EA0000;
+
+    --animation-duration: .3s;
 }
