@@ -32,7 +32,7 @@
 }
 .label {
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-size: var(--font-size-hg);
     cursor: text;
 }

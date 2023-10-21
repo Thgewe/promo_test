@@ -4,23 +4,22 @@ import phoneFormat from "../utils/phoneFormat";
 
 interface IMobileFormTopProps {
     phoneNumber: string;
-    setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+    setPhoneNumber: (newPhone: string) => void;
 }
 
 const MobileFormTop: React.FC<IMobileFormTopProps> = ({
     phoneNumber,
     setPhoneNumber,
 }) => {
-
-    const digitsAmount = 10;
-
-    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (
-            e.target.value.match(/\D/)
-            || e.target.value.length > digitsAmount
-        ) { return }
-
-        setPhoneNumber(e.target.value);
+    const preventArrowNavigation = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'ArrowUp' ||
+            e.key === 'ArrowRight' ||
+            e.key === 'ArrowDown' ||
+            e.key === 'ArrowLeft'
+        ) {
+            e.preventDefault();
+            return false;
+        }
     }
 
     return (
@@ -31,7 +30,8 @@ const MobileFormTop: React.FC<IMobileFormTopProps> = ({
                 type="tel"
                 className={cl.input}
                 value={phoneNumber}
-                onChange={changeHandler}
+                onKeyDown={preventArrowNavigation}
+                onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <label
                 className={cl.label}

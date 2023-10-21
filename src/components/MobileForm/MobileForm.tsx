@@ -6,11 +6,22 @@ const MobileForm = () => {
 
     const [phoneNumber, setPhoneNumber] = useState<string>('');
 
+    const digitsAmount = 10;
+
+    const phoneChangeHandler = (newPhone: string) => {
+        if (
+            newPhone.match(/\D/)
+            || newPhone.length > digitsAmount
+        ) { return }
+
+        setPhoneNumber(newPhone);
+    }
+
     return (
         <form className={cl.form}>
             <MobileFormTop
                 phoneNumber={phoneNumber}
-                setPhoneNumber={setPhoneNumber}
+                setPhoneNumber={phoneChangeHandler}
             />
         </form>
     );
