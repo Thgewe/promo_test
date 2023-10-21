@@ -12,9 +12,7 @@ function App() {
             <div className="app">
                 <PromoLayout>
                     <Banner />
-                    <NumberScreen>
-                        <MobileForm />
-                    </NumberScreen>
+                    <NumberScreen />
                 </PromoLayout>
             </div>
         </PromoProvider>

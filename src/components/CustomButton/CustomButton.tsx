@@ -5,7 +5,7 @@ interface ICustomButtonProps {
     disabled?: boolean;
     tabIndex?: number;
     className?: string;
-    content: string;
+    content: string | React.ReactNode;
     callback: (params: any) => any;
     type?: "button" | "submit" | "reset";
 }

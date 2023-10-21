@@ -5,7 +5,11 @@ import MobileFormInputPanel from "../MobileFormInputPanel/MobileFormInputPanel";
 import MobileFormBottom from "../MobileFormBottom/MobileFormBottom";
 import ValidationService from "../../API/validationService";
 
-const MobileForm = () => {
+interface IMobileFormProps {
+    setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const MobileForm = ({setSubmitted}: IMobileFormProps) => {
 
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
@@ -46,7 +50,14 @@ const MobileForm = () => {
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('submit')
+        // Проверка, что номер валидный, введен полностью,
+        // и согласны с обработкой ПД
+        if (!error &&
+            agreement &&
+            phoneNumber.length === digitsAmount &&
+            !loading) {
+            setSubmitted(true);
+        }
     }
 
     useEffect(() => {
@@ -67,9 +78,9 @@ const MobileForm = () => {
             <MobileFormBottom
                 error={error}
                 ready={!error &&
-                        agreement &&
-                        phoneNumber.length === digitsAmount &&
-                        !loading}
+                    agreement &&
+                    phoneNumber.length === digitsAmount &&
+                    !loading}
                 agreement={agreement}
                 setAgreement={setAgreement}
             />

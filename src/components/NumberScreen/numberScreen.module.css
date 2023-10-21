@@ -1,7 +1,4 @@
 .left {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 380px;
     height: 100%;
     transition: transform var(--animation-duration) ease-in;
@@ -20,6 +17,13 @@
     width: 88px;
     height: 52px;
     transition: transform var(--animation-duration) ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close svg {
+    height: 24px;
+    width: 24px;
 }
 .close:hover {
     background-color: #cccccc;
@@ -29,6 +33,13 @@
 }
 .close.hidden {
     transform: translateY(calc(-20px - 100%));
+}
+.close.submitted {
+    color: #ffffff;
+    background-color: #000000;
+}
+.close.submitted:hover {
+    background-color: rgb(31, 30, 30);
 }
 .qrcode {
     background:
@@ -44,4 +55,26 @@
 }
 .qrcode.hidden {
     transform: translateY(calc(40px + 100%));
+}
+
+.success {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 265px;
+    padding-inline: 48px;
+    text-align: center;
+    gap: 15px;
+}
+.success h2 {
+    display: inline-block;
+    font-weight: 700;
+    font-size: var(--font-size-hg);
+    text-transform: uppercase;
+}
+.success p {
+    display: inline-block;
+    font-size: var(--font-size-sm);
 }

@@ -1,24 +1,33 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import cl from './numberScreen.module.css';
 import CustomButton from "../CustomButton/CustomButton";
 import {PromoContext} from "../../context/PromoContext";
+import MobileForm from "../MobileForm/MobileForm";
+import {ReactComponent as Cross} from "../../media/cross.svg";
 
-// TODO - close cross
-
-const NumberScreen: React.FC<React.PropsWithChildren> = ({
-    children,
-}) => {
+const NumberScreen = () => {
     const {promoStatus, setPromoStatus} = useContext(PromoContext);
+    const [submitted, setSubmitted] = useState<boolean>(false);
 
     return (
         <>
             <div className={cl.left + ' ' + (promoStatus ? cl.hidden : '')}>
-                {children}
+                {submitted
+                    ? <div className={cl.success}>
+                        <h2>Заявка<br/>принята</h2>
+                        <p>Держите телефон под рукой.<br/>Скоро с Вами свяжется наш менеджер. </p>
+                    </div>
+                    : <MobileForm setSubmitted={setSubmitted}/>
+                }
             </div>
             <CustomButton
                 tabIndex={promoStatus ? -1 : 0}
-                className={cl.close + ' ' + (promoStatus ? cl.hidden : '')}
-                content={'X'}
+                className={
+                    cl.close +
+                        ' ' + (promoStatus ? cl.hidden : '') +
+                        ' ' + (submitted ? cl.submitted : '')
+                }
+                content={<Cross />}
                 callback={() => setPromoStatus(true)}
             />
             <div className={cl.qrcode + ' ' + (promoStatus ? cl.hidden : '')}>=</div>
