@@ -1,13 +1,9 @@
 import React from 'react';
 import cl from './mobileFormTop.module.css';
 import phoneFormat from "../utils/phoneFormat";
+import {IFormChildrenProps} from "../../models/form";
 
-interface IMobileFormTopProps {
-    phoneNumber: string;
-    setPhoneNumber: (newPhone: string) => void;
-}
-
-const MobileFormTop: React.FC<IMobileFormTopProps> = ({
+const MobileFormTop: React.FC<IFormChildrenProps> = ({
     phoneNumber,
     setPhoneNumber,
 }) => {

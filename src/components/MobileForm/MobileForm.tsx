@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import cl from './mobileForm.module.css';
 import MobileFormTop from "../MobileFormTop/MobileFormTop";
+import MobileFormInputPanel from "../MobileFormInputPanel/MobileFormInputPanel";
 
 const MobileForm = () => {
 
@@ -17,9 +18,17 @@ const MobileForm = () => {
         setPhoneNumber(newPhone);
     }
 
+    const submitHandler = (e: React.FormEvent) => {
+        e.preventDefault();
+    }
+
     return (
-        <form className={cl.form}>
+        <form className={cl.form} onSubmit={submitHandler}>
             <MobileFormTop
+                phoneNumber={phoneNumber}
+                setPhoneNumber={phoneChangeHandler}
+            />
+            <MobileFormInputPanel
                 phoneNumber={phoneNumber}
                 setPhoneNumber={phoneChangeHandler}
             />
