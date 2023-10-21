@@ -4,6 +4,7 @@ import PromoLayout from "./components/PromoLayout/PromoLayout";
 import Banner from "./components/Banner/Banner";
 import NumberScreen from "./components/NumberScreen/NumberScreen";
 import PromoProvider from "./context/PromoContext";
+import MobileForm from "./components/MobileForm/MobileForm";
 
 function App() {
     return (
@@ -11,7 +12,9 @@ function App() {
             <div className="app">
                 <PromoLayout>
                     <Banner />
-                    <NumberScreen />
+                    <NumberScreen>
+                        <MobileForm />
+                    </NumberScreen>
                 </PromoLayout>
             </div>
         </PromoProvider>

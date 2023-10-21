@@ -1,0 +1,41 @@
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+}
+
+.headline {
+    display: block;
+    font-weight: 400;
+    font-size: var(--font-size-bg);
+}
+
+.input {
+    position: absolute;
+    display: block;
+    background: var(--background-color-primary);
+    outline: none;
+    border: none;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    user-select: none;
+}
+/*
+Не придумал ничего лучше кроме тени
+чтобы показать, что текст в фокусе.
+Без обозначения фокуса как то не очень
+*/
+.input:focus + .label {
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.69);
+}
+.label {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: var(--font-size-hg);
+    cursor: text;
+}
+.clarification {
+    font-size: var(--font-size-sm);
+}
