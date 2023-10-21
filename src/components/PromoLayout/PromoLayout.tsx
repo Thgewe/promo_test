@@ -1,12 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React, {PropsWithChildren, useContext, useEffect, useRef} from 'react';
 import cl from './promoLayout.module.css';
 import video from '../../media/VanDammeVolvoTruck.mp4';
+import {PromoContext} from "../../context/PromoContext";
 
-interface IPromoLayoutProps extends React.PropsWithChildren {
-    promoStatus: boolean;
-}
-const PromoLayout: React.FC<IPromoLayoutProps> = ({promoStatus, children}) => {
+const PromoLayout: React.FC<PropsWithChildren> = ({children}) => {
 
+    const { promoStatus } = useContext(PromoContext);
     const videoElem = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {

@@ -1,20 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import cl from './numberScreen.module.css';
 import CustomButton from "../CustomButton/CustomButton";
+import {PromoContext} from "../../context/PromoContext";
 
-interface INumberScreenProps extends React.PropsWithChildren {
-    promoStatus: boolean;
-    setPromoStatus: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// TODO - close cross
 
-// TODO - context
-//      - close cross
-
-const NumberScreen: React.FC<INumberScreenProps> = ({
-    promoStatus,
-    setPromoStatus,
+const NumberScreen: React.FC<React.PropsWithChildren> = ({
     children,
 }) => {
+    const {promoStatus, setPromoStatus} = useContext(PromoContext);
+
     return (
         <>
             <div className={cl.left + ' ' + (promoStatus ? cl.hidden : '')}>
