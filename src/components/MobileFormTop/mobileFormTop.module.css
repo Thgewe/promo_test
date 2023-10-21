@@ -22,19 +22,14 @@
     opacity: 0;
     user-select: none;
 }
-/*
-Не придумал ничего лучше кроме тени
-чтобы показать, что текст в фокусе.
-Без обозначения фокуса как то не очень
-*/
-.input:focus + .label {
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.69);
-}
 .label {
     font-weight: 700;
     letter-spacing: 1px;
     font-size: var(--font-size-hg);
     cursor: text;
+}
+.label.error {
+    color: var(--color-errow);
 }
 .clarification {
     font-size: var(--font-size-sm);

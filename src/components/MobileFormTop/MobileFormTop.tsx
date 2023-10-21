@@ -4,6 +4,7 @@ import phoneFormat from "../utils/phoneFormat";
 import {IFormChildrenProps} from "../../models/form";
 
 const MobileFormTop: React.FC<IFormChildrenProps> = ({
+    error,
     phoneNumber,
     setPhoneNumber,
 }) => {
@@ -30,7 +31,7 @@ const MobileFormTop: React.FC<IFormChildrenProps> = ({
                 onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <label
-                className={cl.label}
+                className={cl.label + ' ' + (error ? cl.error : '')}
                 htmlFor={"phone"}
             >
                 {phoneFormat(phoneNumber)}
