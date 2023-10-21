@@ -1,0 +1,55 @@
+.bottom {
+    width: 100%;
+}
+
+.submit {
+    margin-top: 13px;
+    width: 100%;
+    height: 52px;
+    color: #ffffff;
+    font-weight: 500;
+}
+.submit:disabled {
+    background-color: transparent;
+    border: 1px solid var(--color-inactive);
+}
+.agreement {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 10px;
+}
+.agreement p {
+    text-align: left;
+    width: fit-content;
+    font-size: var(--font-size-sm);
+    color: var(--color-inactive);
+}
+.check {
+    display: none;
+}
+.check + label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 2px #000000 solid;
+    position: relative;
+}
+.check + label > svg {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+}
+.check:not(:checked) + label > svg {
+    display: none;
+}
+
+.error {
+    line-height: 52px;
+    color: var(--color-errow);
+    text-transform: uppercase;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+}

@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import cl from './mobileForm.module.css';
 import MobileFormTop from "../MobileFormTop/MobileFormTop";
 import MobileFormInputPanel from "../MobileFormInputPanel/MobileFormInputPanel";
+import MobileFormBottom from "../MobileFormBottom/MobileFormBottom";
 
 const MobileForm = () => {
 
     const [phoneNumber, setPhoneNumber] = useState<string>('');
+    const [error, setError] = useState<boolean>(false);
+    const [agreement, setAgreement] = useState<boolean>(false);
 
     const digitsAmount = 10;
 
@@ -20,6 +23,7 @@ const MobileForm = () => {
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
+        console.log('submit')
     }
 
     return (
@@ -31,6 +35,12 @@ const MobileForm = () => {
             <MobileFormInputPanel
                 phoneNumber={phoneNumber}
                 setPhoneNumber={phoneChangeHandler}
+            />
+            <MobileFormBottom
+                error={error}
+                ready={!error && agreement && phoneNumber.length === digitsAmount}
+                agreement={agreement}
+                setAgreement={setAgreement}
             />
         </form>
     );

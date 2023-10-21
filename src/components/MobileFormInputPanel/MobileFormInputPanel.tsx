@@ -11,6 +11,7 @@ const MobileFormInputPanel: React.FC<IFormChildrenProps> = ({
     for (let i = 0; i < 10; i++) {
         buttons.push(<button
             key={i}
+            type={"button"}
             value={i}
             className={cl.btn}
         >
@@ -32,7 +33,13 @@ const MobileFormInputPanel: React.FC<IFormChildrenProps> = ({
     return (
         <div className={cl.panel} onClick={clickHandler}>
             {buttons}
-            <button value={'-1'} className={cl.btn}>СТЕРЕТЬ</button>
+            <button
+                type={"button"}
+                value={'-1'}
+                className={cl.btn}
+            >
+                СТЕРЕТЬ
+            </button>
         </div>
     );
 };

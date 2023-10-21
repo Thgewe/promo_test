@@ -2,13 +2,17 @@ import React from 'react';
 import cl from './customButton.module.css';
 
 interface ICustomButtonProps {
-    tabIndex?: number,
+    disabled?: boolean;
+    tabIndex?: number;
     className?: string;
     content: string;
     callback: (params: any) => any;
+    type?: "button" | "submit" | "reset";
 }
 
 const CustomButton: React.FC<ICustomButtonProps> = ({
+    type,
+    disabled = false,
     tabIndex = 0,
     content,
     className = '',
@@ -16,6 +20,8 @@ const CustomButton: React.FC<ICustomButtonProps> = ({
 }) => {
     return (
         <button
+            type={type}
+            disabled={disabled}
             tabIndex={tabIndex}
             className={cl.button + ' ' + className}
             onClick={(e) => callback(e)}

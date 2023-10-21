@@ -12,3 +12,9 @@
 .button:active {
     background-color: rgb(50, 50, 50);
 }
+.button:disabled {
+    color: var(--color-inactive);
+    user-select: none;
+    user-focus: none;
+    pointer-events: none;
+}
