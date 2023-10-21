@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import cl from './banner.module.css';
 import CustomButton from "../CustomButton/CustomButton";
 import {PromoContext} from "../../context/PromoContext";
@@ -6,10 +6,21 @@ import {PromoContext} from "../../context/PromoContext";
 const Banner = () => {
 
     const {promoStatus, setPromoStatus} = useContext(PromoContext);
+    const [delayOver, setDelayOver] = useState<boolean>(false);
+
+    useEffect(() => {
+        const bannerDelay = setTimeout(() => {
+            setDelayOver(true);
+        }, 5000)
+
+        return () => {
+            clearTimeout(bannerDelay);
+        }
+    }, [])
 
     return (
         <div className={promoStatus
-            ? cl.banner
+            ? cl.banner + ' ' + (delayOver ? '' : cl.hidden)
             : cl.banner + ' ' + cl.hidden
         }>
             <CustomButton
