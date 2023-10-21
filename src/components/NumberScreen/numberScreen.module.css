@@ -1,0 +1,47 @@
+.left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 380px;
+    height: 100%;
+    transition: transform var(--animation-duration) ease-in;
+    background-color: var(--background-color-primary);
+}
+.left.hidden {
+    transform: translateX(-100%);
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    border: 2px #000000 solid;
+    color: #000000;
+    width: 88px;
+    height: 52px;
+    transition: transform var(--animation-duration) ease-in;
+}
+.close:hover {
+    background-color: #cccccc;
+}
+.close.active {
+    background-color: #4E4E4E;
+}
+.close.hidden {
+    transform: translateY(calc(-20px - 100%));
+}
+.qrcode {
+    background:
+            transparent
+            url("../../media/QRcodeWithText.png")
+            no-repeat center center;
+    position: absolute;
+    width: 314px;
+    height: 110px;
+    bottom: 40px;
+    right: 40px;
+    transition: transform var(--animation-duration) ease-in;
+}
+.qrcode.hidden {
+    transform: translateY(calc(40px + 100%));
+}
