@@ -4,17 +4,19 @@ import PromoLayout from "./components/PromoLayout/PromoLayout";
 import Banner from "./components/Banner/Banner";
 import NumberScreen from "./components/NumberScreen/NumberScreen";
 import PromoProvider from "./context/PromoContext";
-import MobileForm from "./components/MobileForm/MobileForm";
+import ControlsProvider from "./context/ControlsContext";
 
 function App() {
     return (
         <PromoProvider>
-            <div className="app">
-                <PromoLayout>
-                    <Banner />
-                    <NumberScreen />
-                </PromoLayout>
-            </div>
+            <ControlsProvider>
+                <div className="app">
+                    <PromoLayout>
+                        <Banner />
+                        <NumberScreen />
+                    </PromoLayout>
+                </div>
+            </ControlsProvider>
         </PromoProvider>
   );
 }

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import cl from './mobileFormInputPanel.module.css';
 import {IFormChildrenProps} from "../../models/form";
+import {ControlsContext} from "../../context/ControlsContext";
 
 const MobileFormInputPanel: React.FC<IFormChildrenProps> = ({
     phoneNumber,
     setPhoneNumber,
 }) => {
+
+    const {panel} = useContext(ControlsContext);
 
     const buttons = []
     for (let i = 0; i < 10; i++) {
@@ -31,7 +34,11 @@ const MobileFormInputPanel: React.FC<IFormChildrenProps> = ({
     }
 
     return (
-        <div className={cl.panel} onClick={clickHandler}>
+        <div
+            ref={panel}
+            className={cl.panel}
+            onClick={clickHandler}
+        >
             {buttons}
             <button
                 type={"button"}

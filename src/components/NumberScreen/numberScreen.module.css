@@ -28,6 +28,11 @@
 .close:hover {
     background-color: #cccccc;
 }
+.close:focus {
+    color: #ffffff;
+    background-color: #000000;
+    outline: none;
+}
 .close.active {
     background-color: #4E4E4E;
 }

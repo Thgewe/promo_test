@@ -13,6 +13,9 @@
     background-color: transparent;
     border: 1px solid var(--color-inactive);
 }
+.submit:focus {
+    outline: 2px #ffffff solid;
+}
 .agreement {
     height: 52px;
     display: flex;

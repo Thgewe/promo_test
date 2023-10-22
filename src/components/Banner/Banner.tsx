@@ -24,7 +24,7 @@ const Banner = () => {
             : cl.banner + ' ' + cl.hidden
         }>
             <CustomButton
-                tabIndex={promoStatus ? 0 : -1}
+                tabIndex={promoStatus && delayOver ? 0 : -1}
                 className={cl.btn}
                 content={'ОК'}
                 callback={() => {

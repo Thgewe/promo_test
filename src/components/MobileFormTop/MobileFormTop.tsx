@@ -23,6 +23,7 @@ const MobileFormTop: React.FC<IFormChildrenProps> = ({
         <div className={cl.top}>
             <h1 className={cl.headline}>Введите ваш номер мобильного телефона</h1>
             <input
+                readOnly={true}
                 id={"phone"}
                 type="tel"
                 className={cl.input}

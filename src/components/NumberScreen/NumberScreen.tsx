@@ -4,9 +4,11 @@ import CustomButton from "../CustomButton/CustomButton";
 import {PromoContext} from "../../context/PromoContext";
 import MobileForm from "../MobileForm/MobileForm";
 import {ReactComponent as Cross} from "../../media/cross.svg";
+import {ControlsContext} from "../../context/ControlsContext";
 
 const NumberScreen = () => {
     const {promoStatus, setPromoStatus} = useContext(PromoContext);
+    const {close} = useContext(ControlsContext);
     const [submitted, setSubmitted] = useState<boolean>(false);
 
     return (
@@ -21,6 +23,7 @@ const NumberScreen = () => {
                 }
             </div>
             <CustomButton
+                ref={close}
                 tabIndex={promoStatus ? -1 : 0}
                 className={
                     cl.close +

@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import cl from './mobileForm.module.css';
 import MobileFormTop from "../MobileFormTop/MobileFormTop";
 import MobileFormInputPanel from "../MobileFormInputPanel/MobileFormInputPanel";
 import MobileFormBottom from "../MobileFormBottom/MobileFormBottom";
 import ValidationService from "../../API/validationService";
+import KeyboardInputController from "../KeyboardInputController";
+import {PromoContext} from "../../context/PromoContext";
 
 interface IMobileFormProps {
     setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,10 +17,16 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
     const [error, setError] = useState<boolean>(false);
     const [agreement, setAgreement] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
+    const {promoStatus} = useContext(PromoContext);
+
+    const digitsAmount = 10;
+    const ready = !error &&
+        agreement &&
+        phoneNumber.length === digitsAmount &&
+        !loading;
 
     const validate = ValidationService;
 
-    const digitsAmount = 10;
 
     const validateNumber = async () => {
         // Проверка количества введенных чисел
@@ -44,7 +52,6 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
         if (newPhone.match(/\D/)
             || newPhone.length > digitsAmount
         ) { return }
-
         setPhoneNumber(newPhone);
     }
 
@@ -77,13 +84,18 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
             />
             <MobileFormBottom
                 error={error}
-                ready={!error &&
-                    agreement &&
-                    phoneNumber.length === digitsAmount &&
-                    !loading}
+                ready={ready}
                 agreement={agreement}
                 setAgreement={setAgreement}
             />
+            {promoStatus
+                ? null
+                : <KeyboardInputController
+                    ready={ready}
+                    phoneNumber={phoneNumber}
+                    setPhoneNumber={phoneChangeHandler}
+                />
+            }
         </form>
     );
 };
