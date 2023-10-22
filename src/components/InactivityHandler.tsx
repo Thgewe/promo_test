@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {PromoContext} from "../context/PromoContext";
-import debounce from "./utils/debounce";
+import debounce from "../utils/debounce";
 
 const InactivityHandler = () => {
 

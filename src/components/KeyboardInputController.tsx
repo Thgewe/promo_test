@@ -133,6 +133,7 @@ const KeyboardInputController = ({
     }, [phoneNumber, buttonMatrix, ready])
 
     useEffect(() => {
+        // Установка дефолтного фокуса
         if (buttonMatrix.length)
             buttonMatrix[focusIndex.current.m][focusIndex.current.n].focus();
     }, [buttonMatrix])

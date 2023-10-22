@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from './mobileFormTop.module.css';
-import phoneFormat from "../utils/phoneFormat";
+import phoneFormat from "../../utils/phoneFormat";
 import {IFormChildrenProps} from "../../models/form";
 
 const MobileFormTop: React.FC<IFormChildrenProps> = ({

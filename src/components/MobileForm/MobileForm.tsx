@@ -21,13 +21,14 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
     const {promoStatus} = useContext(PromoContext);
 
     const digitsAmount = 10;
+    // Проверка, что номер валидный, введен полностью,
+    // и согласны с обработкой ПД
     const ready = !error &&
         agreement &&
         phoneNumber.length === digitsAmount &&
         !loading;
 
     const validate = ValidationService;
-
 
     const validateNumber = async () => {
         // Проверка количества введенных чисел
@@ -58,12 +59,8 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-        // Проверка, что номер валидный, введен полностью,
-        // и согласны с обработкой ПД
-        if (!error &&
-            agreement &&
-            phoneNumber.length === digitsAmount &&
-            !loading) {
+
+        if (ready) {
             setSubmitted(true);
         }
     }

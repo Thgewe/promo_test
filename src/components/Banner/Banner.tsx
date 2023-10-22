@@ -7,11 +7,12 @@ const Banner = () => {
 
     const {promoStatus, setPromoStatus} = useContext(PromoContext);
     const [delayOver, setDelayOver] = useState<boolean>(false);
+    const appearanceDelay = 5000;
 
     useEffect(() => {
         const bannerDelay = setTimeout(() => {
             setDelayOver(true);
-        }, 5000)
+        }, appearanceDelay)
 
         return () => {
             clearTimeout(bannerDelay);
