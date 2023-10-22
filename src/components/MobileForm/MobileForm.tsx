@@ -6,6 +6,7 @@ import MobileFormBottom from "../MobileFormBottom/MobileFormBottom";
 import ValidationService from "../../API/validationService";
 import KeyboardInputController from "../KeyboardInputController";
 import {PromoContext} from "../../context/PromoContext";
+import InactivityHandler from "../InactivityHandler";
 
 interface IMobileFormProps {
     setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -90,11 +91,14 @@ const MobileForm = ({setSubmitted}: IMobileFormProps) => {
             />
             {promoStatus
                 ? null
-                : <KeyboardInputController
-                    ready={ready}
-                    phoneNumber={phoneNumber}
-                    setPhoneNumber={phoneChangeHandler}
-                />
+                : <>
+                    <KeyboardInputController
+                        ready={ready}
+                        phoneNumber={phoneNumber}
+                        setPhoneNumber={phoneChangeHandler}
+                    />
+                    <InactivityHandler />
+                </>
             }
         </form>
     );
